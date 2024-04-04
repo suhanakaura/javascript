@@ -1,0 +1,131 @@
+<!-- dom - document object model -->
+<!DOCTYPE html> <!--document is of html 5 type-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM LEARNING</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color:#fff;
+        }
+    </style>
+</head>
+<body class ="bg-black">
+    <div>
+    <h1 id="title" class="heading">DOM Learning on chai or code <span style="display:none">test text</span></h1>
+    <h2 class="heading">Lorem ipsum dolor sit amet.</h2>
+    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+    <h2>Lorem, ipsum dolor.</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <input type="text">
+
+    <ul>
+        <li class="list">one</li>
+        <li class="list">two</li>
+        <li class="list">three</li>
+        <li class="list">four</li>
+    </ul>
+    </div>
+</body> 
+</html>
+
+<!-- 
+const title = document.getElementById('title').getAttribute('class')
+undefined
+
+title
+'head heading'
+
+const titles = document.getElementById('title')
+undefined
+
+titles.style.backgroundColor='grey'
+
+titles.style.padding = "15px"
+
+titles.style.borderRadius = "20px"
+
+#let use some display property and set it to none
+titles.textContent
+'DOM Learning on chai or code' #the hidden content will also show
+
+titles.innerText
+'DOM Learning on chai or code' #the hidden content will not show
+
+titles.innerHTML
+'DOM Learning on chai or code' #will give html value also
+
+document.getElementsByClassName('heading')
+HTMLCollection [h1#title.heading, title: h1#title.heading] #we get html collection
+
+document.querySelector('h1')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+document.querySelectorAll('h1') #we get node list
+NodeList [h1#title.heading]0: h1#title.headinglength: 1[[Prototype]]: NodeList
+
+document.querySelectorAll('h2')
+NodeList(3) [h2, h2, h2]  #will give all h2
+
+document.querySelector('h2') #will give 1st h2
+<h2>​Lorem ipsum dolor sit amet.​</h2>​
+
+
+document.querySelector('#title')
+<h1 id=​"title" class=​"heading">​…​</h1>
+​
+document.querySelector('.heading')
+<h1 id=​"title" class=​"heading">​…​</h1>​
+
+document.querySelectorAll('.heading')
+ 
+document.querySelector('input[type="text"]')
+<input type=​"text">​
+
+document.querySelector('div:first-child')
+<div>​…​</div>​<h1 id=​"title" class=​"heading">​…​</h1>​"DOM Learning on chai or code "<span style=​"display:​none">​test text​</span>​</h1>​<h2 class=​"heading">​Lorem ipsum dolor sit amet.​</h2>​<h2>​Lorem ipsum dolor sit amet consectetur adipisicing.​</h2>​<h2>​Lorem, ipsum dolor.​</h2>​<p>​Lorem ipsum dolor sit amet.​</p>​<input type=​"text">​</div>​
+
+
+const myul = document.querySelector('ul')
+undefined
+
+myul
+<ul>​…​</ul>​
+
+const turngreen = myul.querySelector('li')
+undefined
+
+turngreen
+<li>​…​</li>​::marker​"one"</li>​
+
+turngreen.style.backgroundColor = "green"
+'green'''
+
+turngreen.innerText
+'one'
+
+turngreen.innerText = "1"
+'1'
+
+const tempLiList = document.querySelectorAll('li')
+undefined
+
+tempLiList
+NodeList(3) [li, li, li] #we can't use map on nodelist, for that convert it into array
+
+tempLiList[1].style.color= "green" #changes the color of second element of node list to green
+'green'
+#if single element in node list then also use nodelist[index]
+
+const lii = document.querySelectorAll('li')
+undefined
+
+lii.forEach(function(l){
+    l.style.color = "green"
+})
+
+const lii = document.getElementsByClassName('list')
+
+Array.from(lii) #we can't use map on html collection, for that convert it into array
+-->
