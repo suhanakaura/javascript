@@ -34,3 +34,43 @@ buttons.forEach( function(button){
   })
 })
 ```
+
+## project 2
+``` javascript 
+const form = document.querySelector('form')
+
+// when we click  the submit button , by default the data will be sent to the server side , we have to stop that action
+
+// this will give an empty value
+// const weight = parseInt(document.querySelector('#weight').value) //by default - string
+
+// const height = parseInt(document.querySelector('#height').value)
+
+form.addEventListener('submit',function(e){
+  e.preventDefault() //prevent the default action
+
+  const weight = parseInt(document.querySelector('#weight').value) //by default - string
+
+  const height = parseInt(document.querySelector('#height').value)
+
+  const results = document.querySelector('#results')
+
+  if(height==='' || height<=0 || isNaN(height)){
+    results.innerHTML = "Please enter a valid height"
+  } else if(weight==='' || weight<=0 || isNaN(weight)){
+    results.innerHTML = "Please enter a valid weight"
+  } else{
+    const bmi = (weight/((height*height)/10000)).toFixed(2)//till 2 decimal places
+
+    if(bmi<18.6){
+    results.innerHTML = `<span>Underweight - ${bmi}</span>`
+    }else if(bmi>=18.6 && bmi<24.9){
+    results.innerHTML = `<span>Normal - ${bmi}</span>`
+    }else{
+    results.innerHTML = `<span>Overweight - ${bmi}</span>`
+    }
+  }
+
+
+})
+```
