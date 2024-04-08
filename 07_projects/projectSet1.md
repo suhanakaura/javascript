@@ -1,11 +1,11 @@
-#Projects related to DOM
+# Projects related to DOM
 
-##Project Link
+## Project Link
 [click here](https://stackblitz.com/edit/dom-project-chaiaurcode?file=index.html)
 
-#Solution Code
+# Solution Code
 
-##Project 1
+## Project 1
 
 ```javascript 
 const buttons = document.querySelectorAll('.button')
@@ -73,4 +73,22 @@ form.addEventListener('submit',function(e){
 
 
 })
+```
+
+## Project 3
+```javascript
+const clock = document.getElementById('clock')
+
+// let date = new Date()
+// console.log(date.toLocaleTimeString())
+
+// setInterval(function(){},time(in millisec)) //give a method and tell after what interval it has to be run how many times
+
+setInterval(function(){
+  let date = new Date()
+  clock.innerHTML = date.toLocaleTimeString()
+  // console.log(date.toLocaleTimeString())
+// we will get a value after every 1 sec
+},1000)
+
 ```
