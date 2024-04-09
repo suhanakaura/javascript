@@ -92,3 +92,116 @@ setInterval(function(){
 },1000)
 
 ```
+
+## project 4
+```javascript
+// generate a random number between 1 and 100
+let randomNumber = console.log(parseInt(Math.random()*100 +1))
+// number is in between 1 and 100
+const submit = document.querySelector('#subt')
+
+// for user input
+const userInput = document.querySelector('#guessField');
+
+// user previous guesses
+const guessSlot = document.querySelector('.guesses');
+
+// remaining guess
+const remaining = document.querySelector('.lastResult');
+
+const lowOrHigh = document.querySelector('.lowOrHi');
+
+// display paragraphs
+const startOver = document.querySelector('.resultParas');
+
+// for injecting values
+const p = document.createElement('p');
+
+let prevGuess = []
+let numGuess = 1
+let playGame = true
+
+// available for playing game or not
+if(playGame){
+  submit.addEventListener('submit',function(e){
+    e.preventDefault() //stops the default action 
+    const guess = parseInt(userInput.value)
+    // console.log(guess)
+    validateGuess(guess)
+  })
+}
+
+// give and guess and validate it
+function validateGuess(guess){
+  // guesses a valid number or not
+  if(NaN(guess)){
+    alert("please enter a valid number")
+  } else if(guess<1){
+    alert("please enter a number more than 1")
+  } else if(guess>100){
+    alert("please enter a number less than 100")
+  } else{
+    prevGuess.push(guess)
+    if(numGuess===11){
+      displayGuess(guess)
+      displayMessage(`game over . random number was ${randomNumber}`)
+      endGame()
+    }
+    else{
+      displayGuess(guess)
+      checkGuess(guess)
+    }
+  }
+
+}
+
+function checkGuess(guess){
+  // checks whether the guessed number is correct
+  if(guess === randomNumber){
+    displayMessage(`you guessed it right`)
+    endGame()
+  }else if(guess<randomNumber){
+    displayMessage(`Number is too low`)
+  }else if(guess>randomNumber){
+    displayMessage(`Number is too high`)
+  }
+
+}
+
+function displayGuess(guess){ //used for clean up
+  userInput.value = ''
+  guessSlot.innerHTML += `${guess} `
+  numGuess++
+  remaining.innerHTML = `${11-numGuess}`
+}
+
+function displayMessage(message){
+  // this functions displays a message . it directly interacts with dom
+  lowOrHigh.innerHTML = `<h3>${message}</h3>`
+
+}
+
+function endGame(){
+  userInput.value = ''
+  userInput.setAttribute('disabled','')//key value pair
+  p.classList.add('button') //for creating a new button
+  p.innerHTML = `<h2 id="newGame">start new game</h2>`
+  startOver.appendChild(p)
+  playGame = false
+  newGame()
+}
+
+function newGame(){
+  const newgamebutton = document.querySelector('#newGame')
+  newgamebutton.addEventListener('click',function(e){
+    randomNumber = console.log(parseInt(Math.random()*100 +1))
+    prevGuess=[]
+    numGuess=1
+    guessSlot.innerHTML=''
+    remaining.innerHTML = `${11-numGuess}`
+    userInput.removeAttribute('disabled')
+    startOver.removeChild(p)
+    playGame=true
+  })
+}
+```
