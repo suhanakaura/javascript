@@ -1,0 +1,48 @@
+<!-- api is a talking language b/w two systems -->
+<!-- 0	UNSENT	Client has been created. open() not called yet.
+     1	OPENED	open() has been called.
+     2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+     3	LOADING	Downloading; responseText holds partial data.
+     4	DONE	The operation is complete. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/suhanakaura'
+    // xml's request - ajax request
+    const xml = new XMLHttpRequest() //iske through hm apna data send or receive kr skte h(we are using object of method XMLHttpsRequest)
+    xml.open('GET',requestURL)
+    // console.log("here")
+    // console.log(xml.readyState)
+    // to monitor continuously
+    xml.onreadystatechange = function(){
+        console.log(xml.readyState)
+        if(xml.readyState===4){
+            // console.log(this.responseText)
+            const data = JSON.parse(this.responseText) //most of the cases we get response in string . parse method of JSON converts string to JSON format
+            // we need to convert it to json data
+            console.log(data.followers)
+        }
+    }
+    xml.send()//api called
+
+</script>
+</html>
+<!-- console is a debugger, developer tool
+many engines are used to run js - v8 engine
+v8 - whole engine is written in js
+it provides debugging tools and some api's access 
+core javascript doesn't contain console and api
+
+in v8/v8 repo - console.cc repo is actually the console , it's in c++ 
+whole js is a wrapper over c++ -->
+
+<!-- whole engine goes to browser , browser doesn't directly prints it , engine provides it a dev tool i.e inside console ..that's where it has to be printed. that's where those files are actually written -->
