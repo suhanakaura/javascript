@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai Aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // set timeout function - it also calls api(they aren't the core function of js . we get them through browser)
+
+    // setTimeout(function(){
+    //     console.log("suhana")
+    // },2000) //will be printed after 2 sec . printed only once
+    // handler is a callback function jiska naam nahi h
+
+    // or
+    function saymyname(){
+        console.log("suhana")
+    }
+    setTimeout(saymyname,3000) //pass the reference only don't execute it
+
+    // change the heading after 2 sec
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = 'best js series'
+    }
+    const changeMe = setTimeout(changeText,3000)
+
+    // if we don't want that code to be executed we use clear timeout function within the time interval given(on clicking the stop button)
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("stopped")
+    })
+
+</script>
+</html>
