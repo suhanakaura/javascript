@@ -19,20 +19,21 @@
     const requestURL = 'https://api.github.com/users/suhanakaura'
     // xml's request - ajax request
     const xml = new XMLHttpRequest() //iske through hm apna data send or receive kr skte h(we are using object of method XMLHttpsRequest)
-    xml.open('GET',requestURL)
+    xml.open('GET',requestURL) //(method,url)
     // console.log("here")
     // console.log(xml.readyState)
     // to monitor continuously
-    xml.onreadystatechange = function(){
-        console.log(xml.readyState)
-        if(xml.readyState===4){
-            // console.log(this.responseText)
-            const data = JSON.parse(this.responseText) //most of the cases we get response in string . parse method of JSON converts string to JSON format
-            // we need to convert it to json data
-            console.log(data.followers)
-        }
-    }
-    xml.send()//api called
+   
+    // xml.onreadystatechange = function(){
+        // console.log(xml.readyState)
+    //     if(xml.readyState===4){
+    //         // console.log(this.responseText)
+    //         const data = JSON.parse(this.responseText) //most of the cases we get response in string . parse method of JSON converts string to JSON format
+    //         // we need to convert it to json data
+    //         console.log(data.followers)
+    //     }
+    // }
+    xml.send()//api called .. open() is actually called here
 
 </script>
 </html>
@@ -46,3 +47,5 @@ in v8/v8 repo - console.cc repo is actually the console , it's in c++
 whole js is a wrapper over c++ -->
 
 <!-- whole engine goes to browser , browser doesn't directly prints it , engine provides it a dev tool i.e inside console ..that's where it has to be printed. that's where those files are actually written -->
+
+
