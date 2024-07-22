@@ -165,3 +165,20 @@ fetch('https://api.github.com/users/suhanakaura')
     console.log(data);
 }) //no need to use await here as it works only when previous then's work finishes
 .catch((error)=>{console.log(error)})
+
+// of all the tasks , fetch will be completed first as the function calls are stored in a priority
+// queue of fetch , hence it's added first in the call stack
+// if both are taking the same time
+
+// response = fetch('something')
+// does two tasks :
+// 1. allocate the memory space for the variables
+// private fields: data , onFulfilled[] array (resolve) , onRejection[] array (reject): we can't 
+// access them
+
+// 2. access browser based api or node based api
+// we send a network request using a resource provided by browser or node js env 
+
+// if the network request either goes to the network or doesn't . if goes and response comes 
+// it goes to onFullfilled[] (error 404 is counted in onFulfilled only), if not then to onRejection[]
+// inside onFullfilled[]/onRejection[] we get a function that is responsible for fulfilling the data
